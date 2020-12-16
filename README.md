@@ -1,4 +1,5 @@
-# Lab 2 Option 3: Adder
+# Lab Reading-disk-image
+
 
 ## Team
 
