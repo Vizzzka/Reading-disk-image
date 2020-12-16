@@ -2,7 +2,7 @@
 
 ## Team
 
- - [Volodymyr Chernetskyi](https://github.com/chernetskyi)
+ - [Usachova Victoria](https://github.com/Vizzzka)
 
 ## Prerequisites
 
@@ -37,7 +37,6 @@ Dependencies (such as development libraries) can be found in the [dependencies f
 ## Usage
 
 ```bash
-add [a] [b]
 ```
 
 If less than two numbers provided, zeroes are used instead. If more - an error occurs.
