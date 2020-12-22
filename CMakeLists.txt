@@ -16,10 +16,10 @@ option(ENABLE_SANITIZERS    "Use sanitizers to detect errors."      OFF) # Optio
 
 # Project source compilation
 include_directories(inc)
-add_library(arithmetic STATIC
-            src/arithmetic/arithmetic.cpp inc/arithmetic/arithmetic.hpp)
-add_executable(add src/main.cpp)
-target_link_libraries(add arithmetic)
+add_library(filesystem STATIC
+        src/fs/fat.cpp inc/fat/fat.hpp src/fs/ext.cpp)
+add_executable(add src/main.cpp inc/ext/ext.h)
+target_link_libraries(add filesystem)
 
 # Add external packages
 set(Boost_USE_STATIC_LIBS ON)
