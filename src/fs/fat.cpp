@@ -123,12 +123,14 @@ void print_files(std::ifstream& input_stream, int first_cluster_offset,
         if (first_ch == 0x00) {                         // 0x00 -- No later entry
             flag = false;
         }
-        if (first_ch == 0xe5 || first_ch == 0x00) {     // 0xe5 -- File is deleted
+        if (first_ch == 0xe5 || first_ch == 0x00 || first_ch == '.'     // 0xe5 -- File is deleted
+        || directory_entry->attr == std::byte(15)) {
             continue;
         }
         print_dir_entry_info(boot_sector, *directory_entry);
         std::cout << "\n";
-        if (first_ch == 0x2e) {         // 0x2e -- Directory
+
+        if (directory_entry->attr == std::byte(16)) {         // 0x2e -- Directory
             if (is_fat32(boot_sector)) {
                 int first_cluster = directory_entry->first_cluster_lsb |
                                     (directory_entry->first_cluster_msb << 16);
